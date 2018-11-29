@@ -11,12 +11,13 @@ RUN set -x \
     && tar -xvf /tmp/hbase.tar.gz -C /opt/ \
     && rm /tmp/hbase.tar.gz*
 
-RUN ln -s /opt/hbase-$HBASE_VERSION-hadoop2/conf /etc/hbase
-RUN mkdir /opt/hbase-$HBASE_VERSION-hadoop2/logs
+RUN ln -s /opt/hbase-$HBASE_VERSION-hadoop2 /opt/hbase
+RUN ln -s /opt/hbase/conf /etc/hbase
+RUN mkdir /opt/hbase/logs
 
 RUN mkdir /hadoop-data
 
-ENV HBASE_PREFIX=/opt/hbase-$HBASE_VERSION-hadoop2
+ENV HBASE_PREFIX=/opt/hbase
 ENV HBASE_CONF_DIR=/etc/hbase
 
 ENV USER=root

@@ -1,3 +1,3 @@
 #!/bin/bash
 
-/opt/hbase-$HBASE_VERSION/bin/hbase regionserver start
+/opt/hbase/bin/hbase regionserver start
