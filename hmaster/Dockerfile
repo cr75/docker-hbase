@@ -1,4 +1,5 @@
-FROM tlm/hbase-base:1.0.0-hbase0.98.8
+FROM cr75/us.tlm.nutch:hbase-base
+MAINTAINER Kevin Carter <kevin@tlm.us>
 
 COPY run.sh /run.sh
 RUN chmod +x /run.sh
