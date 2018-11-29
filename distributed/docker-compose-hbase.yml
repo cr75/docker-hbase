@@ -2,7 +2,7 @@ version: '3.2'
 
 services:
   hbase-master:
-    image: tlm/hbase-master:1.0.0-hbase0.98.8
+    image: cr75/us.tlm.nutch:hbase-master
     networks:
       - hbase
     deploy:
@@ -18,7 +18,7 @@ services:
       - ./hbase.env
 
   hbase-regionserver-1:
-    image: tlm/hbase-regionserver:1.0.0-hbase0.98.8
+    image: cr75/us.tlm.nutch:regionserver
     networks:
       - hbase
     deploy:
@@ -33,7 +33,7 @@ services:
       HBASE_CONF_hbase_regionserver_hostname: hbase-regionserver-1
 
   hbase-regionserver-2:
-    image: tlm/hbase-regionserver:1.0.0-hbase0.98.8
+    image: cr75/us.tlm.nutch:regionserver
     networks:
       - hbase
     deploy:
@@ -48,7 +48,7 @@ services:
       HBASE_CONF_hbase_regionserver_hostname: hbase-regionserver-2
 
   hbase-regionserver-3:
-    image: tlm/hbase-regionserver:1.0.0-hbase0.98.8
+    image: cr75/us.tlm.nutch:regionserver
     networks:
       - hbase
     deploy:
