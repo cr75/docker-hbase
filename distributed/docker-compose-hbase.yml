@@ -18,7 +18,7 @@ services:
       - ./hbase.env
 
   hbase-regionserver-1:
-    image: cr75/us.tlm.nutch:regionserver
+    image: cr75/us.tlm.nutch:hbase-regionserver
     networks:
       - hbase
     deploy:
@@ -33,7 +33,7 @@ services:
       HBASE_CONF_hbase_regionserver_hostname: hbase-regionserver-1
 
   hbase-regionserver-2:
-    image: cr75/us.tlm.nutch:regionserver
+    image: cr75/us.tlm.nutch:hbase-regionserver
     networks:
       - hbase
     deploy:
@@ -48,7 +48,7 @@ services:
       HBASE_CONF_hbase_regionserver_hostname: hbase-regionserver-2
 
   hbase-regionserver-3:
-    image: cr75/us.tlm.nutch:regionserver
+    image: cr75/us.tlm.nutch:hbase-regionserver
     networks:
       - hbase
     deploy:
@@ -61,6 +61,51 @@ services:
       - ./hbase.env
     environment:
       HBASE_CONF_hbase_regionserver_hostname: hbase-regionserver-3
+
+  hbase-regionserver-4:
+    image: cr75/us.tlm.nutch:hbase-regionserver
+    networks:
+      - hbase
+    deploy:
+      mode: replicated
+      replicas: 1
+      endpoint_mode: dnsrr
+      restart_policy:
+        condition: on-failure
+    env_file:
+      - ./hbase.env
+    environment:
+      HBASE_CONF_hbase_regionserver_hostname: hbase-regionserver-4
+
+  hbase-regionserver-5:
+    image: cr75/us.tlm.nutch:hbase-regionserver
+    networks:
+      - hbase
+    deploy:
+      mode: replicated
+      replicas: 1
+      endpoint_mode: dnsrr
+      restart_policy:
+        condition: on-failure
+    env_file:
+      - ./hbase.env
+    environment:
+      HBASE_CONF_hbase_regionserver_hostname: hbase-regionserver-5
+
+  hbase-regionserver-6:
+    image: cr75/us.tlm.nutch:hbase-regionserver
+    networks:
+      - hbase
+    deploy:
+      mode: replicated
+      replicas: 1
+      endpoint_mode: dnsrr
+      restart_policy:
+        condition: on-failure
+    env_file:
+      - ./hbase.env
+    environment:
+      HBASE_CONF_hbase_regionserver_hostname: hbase-regionserver-6
 
 networks:
   hbase:
