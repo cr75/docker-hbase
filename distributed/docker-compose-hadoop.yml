@@ -8,7 +8,7 @@ services:
     volumes:
       - namenode:/hadoop/dfs/name
     environment:
-      - CLUSTER_NAME=test
+      - CLUSTER_NAME=nutch
     env_file:
       - ./hadoop.env
     deploy:
